@@ -1,17 +1,39 @@
-[
-  "Kæmpe isvaffel med syltetøj",
-  "En elefant der balancerer på ét ben",
-  "En pingvin der går på stylter",
-  "Kærlighed",
-  "Regnvejr",
-  "Klatring",
-  "En hund jager sin egen hale",
-  "En fisk hopper op af vandet",
-  "En regnbue strækker sig over himlen",
-  "Morgenmad",
-  "Campingvogn",
-  "Papirflyver",
-  "Et barn hopper i en vandpyt",
-  "En bil brager ind i en mur",
-  "En dykker dybt nede i havet"
-]
+{
+  "words": [
+    "Kærlighed",
+    "Regnvejr",
+    "Klatring",
+    "Ballerina",
+    "Morgenmad",
+    "Campingvogn",
+    "Papirflyver",
+    "Pirater",
+    "Diskotek",
+    "Vulkan",
+    "Labyrint",
+    "Sneboldkamp",
+    "Slikkepind",
+    "Julegaver",
+    "Himmel",
+    "Båd",
+    "Jungle",
+    "Prinsesse",
+    "baseball",
+    "København",
+    "Næstved (Næver)",
+    ""
+  ],
+  "sentences": [
+    "Kæmpe isvaffel med syltetøj",
+    "En elefant på ét ben",
+    "En pingvin på stylter",
+    "En hund jager sin egen hale",
+    "En fisk hopper op af vandet",
+    "En bil brager ind i en mur",
+    "Et barn hopper i en vandpyt",
+    "En dykker dybt nede i havet",
+    "Fange en sommerfugl",
+    "Puste sæbebobler",
+    "Gøre jazzhænder"
+  ]
+}

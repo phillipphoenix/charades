@@ -1,10 +1,12 @@
 "use client";
 
 import { useGame } from "@/lib/contexts/GameProvider";
+import { AnswerSet } from "@/lib/types/AnswerSet";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
 export const StartGame = () => {
+  const [answerSet, setAnswerSet] = useState<AnswerSet>("da-full");
   const [answerTimeSec, setAnswerTimeSec] = useState<number>(60);
 
   const { push } = useRouter();
@@ -12,9 +14,9 @@ export const StartGame = () => {
 
   const startGame = useCallback(() => {
     console.log("ANSWER TIME", answerTimeSec);
-    createGame(answerTimeSec);
+    createGame(answerSet, answerTimeSec);
     push("/game");
-  }, [answerTimeSec, createGame, push]);
+  }, [answerSet, answerTimeSec, createGame, push]);
 
   return (
     <div className="flex flex-col gap-5 items-center">
@@ -40,6 +42,19 @@ export const StartGame = () => {
             <span>|</span>
           </div>
         </label>
+      </div>
+      <div className="form-control">
+        <label>
+          <span className="label-text">Answer set</span>
+        </label>
+        <select
+          className="select select-bordered"
+          onChange={(e) => setAnswerSet(e.target.value as AnswerSet)}
+          defaultValue={"da-full"}
+        >
+          <option value="da-full">Danske ord og sætninger</option>
+          <option value="da-words-only">Danske ord</option>
+        </select>
       </div>
       <button className="btn btn-lg" onClick={startGame}>
         Start Game

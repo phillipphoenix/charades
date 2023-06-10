@@ -9,20 +9,31 @@ import {
   useState,
 } from "react";
 
-import fullAnswerPool from "@/lib/data/answers-da.json";
+import answerDataDa from "@/lib/data/answers-da.json";
+import { AnswerSet } from "../types/AnswerSet";
+
+const getAnswerSet = (answerSet: AnswerSet) => {
+  switch (answerSet) {
+    case "da-words-only":
+      return answerDataDa.words;
+    case "da-full":
+    default:
+      return [...answerDataDa.words, ...answerDataDa.sentences];
+  }
+};
 
 const useGameContextValue = () => {
   const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
   const [answerTimeSec, setAnswerTimeSec] = useState<number>(60);
-  const [answerPool, setAnswerPool] = useState<string[]>(fullAnswerPool);
+  const [answerPool, setAnswerPool] = useState<string[]>([]);
   const [currentAnswer, setCurrentAnswer] = useState<string | undefined>();
   const [team1Points, setTeam1Points] = useState<number>(0);
   const [team2Points, setTeam2Points] = useState<number>(0);
 
   const createGame = useCallback(
-    (answerTimeInSeconds: number) => {
+    (answerSet: AnswerSet, answerTimeInSeconds: number) => {
       setAnswerTimeSec(answerTimeInSeconds);
-      setAnswerPool(fullAnswerPool);
+      setAnswerPool(getAnswerSet(answerSet));
       setCurrentAnswer(undefined);
       setTeam1Points(0);
       setTeam2Points(0);
