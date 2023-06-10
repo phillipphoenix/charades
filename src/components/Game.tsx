@@ -8,6 +8,7 @@ import useCountdown from "@bradgarropy/use-countdown";
 
 export const Game: FC = () => {
   const {
+    answerTimeSec,
     currentAnswer,
     gotoNextAnswer,
     endGame,
@@ -24,8 +25,7 @@ export const Game: FC = () => {
   }, [endGame, push]);
 
   const { minutes, seconds, reset } = useCountdown({
-    minutes: 0,
-    seconds: 10,
+    seconds: answerTimeSec,
   });
 
   const nextAnswerAndResetTimer = useCallback(() => {

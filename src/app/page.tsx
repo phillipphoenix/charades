@@ -10,16 +10,30 @@ export default function Home() {
       <div className="text-center">
         <h2 className="text-2xl mb-2">How to play</h2>
         <p className="mb-2">
-          🙆‍♂️ Each team takes turns sending one person to mime a word or
-          sentence. The only hint they can give is the amount of words in the
-          answer.
+          🙆‍♂️ Each team takes turns sending one person to{" "}
+          <span className="italic font-bold text-primary">
+            mime a word or sentence
+          </span>
+          . The person can indicate if the answer is a word or a sentence and
+          how many words it is.
         </p>
         <p className="mb-2">
-          ⌚ His or her team then need to guess the word before the time is up.
+          ⌚ His or her team then need to{" "}
+          <span className="italic font-bold text-primary">
+            guess the word or sentence
+          </span>{" "}
+          before the time is up. It is okay, if{" "}
+          <span className="italic font-bold text-primary">
+            the sentence is not exactly the same
+          </span>{" "}
+          as the answer.
         </p>
         <p className="mb-2">
-          🤷‍♂️ If the team can&apos;t guess the answer, the other team gets a
-          chance to guess.
+          🤷‍♂️ If the team can&apos;t guess the answer,{" "}
+          <span className="italic font-bold text-primary">
+            the other team gets a chance to guess
+          </span>
+          .
         </p>
         <p className="mb-2">
           🎉 The team that guessed the answer gets a point.

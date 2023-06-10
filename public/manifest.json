@@ -1,9 +1,9 @@
 {
   "name": "Charades",
   "short_name": "Charades",
-  "theme_color": "#00000",
+  "theme_color": "#000000",
   "background_color": "#6A3DE8",
-  "display": "fullScreen",
+  "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
@@ -26,7 +26,8 @@
     {
       "src": "images/icons/icon-128x128.png",
       "sizes": "128x128",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "images/icons/icon-144x144.png",

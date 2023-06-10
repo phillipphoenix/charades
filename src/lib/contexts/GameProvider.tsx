@@ -13,17 +13,22 @@ import fullAnswerPool from "@/lib/data/answers-da.json";
 
 const useGameContextValue = () => {
   const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
+  const [answerTimeSec, setAnswerTimeSec] = useState<number>(60);
   const [answerPool, setAnswerPool] = useState<string[]>(fullAnswerPool);
   const [currentAnswer, setCurrentAnswer] = useState<string | undefined>();
   const [team1Points, setTeam1Points] = useState<number>(0);
   const [team2Points, setTeam2Points] = useState<number>(0);
 
-  const createGame = useCallback(() => {
-    setAnswerPool(fullAnswerPool);
-    setCurrentAnswer(undefined);
-    setTeam1Points(0);
-    setTeam2Points(0);
-  }, [setAnswerPool, setCurrentAnswer, setTeam1Points, setTeam2Points]);
+  const createGame = useCallback(
+    (answerTimeInSeconds: number) => {
+      setAnswerTimeSec(answerTimeInSeconds);
+      setAnswerPool(fullAnswerPool);
+      setCurrentAnswer(undefined);
+      setTeam1Points(0);
+      setTeam2Points(0);
+    },
+    [setAnswerPool, setCurrentAnswer, setTeam1Points, setTeam2Points]
+  );
 
   const gotoNextAnswer = useCallback(() => {
     const getRandomNextAnswer = () => {
@@ -56,6 +61,7 @@ const useGameContextValue = () => {
 
   return {
     isGameStarted,
+    answerTimeSec,
     currentAnswer,
     team1Points,
     team2Points,
@@ -69,6 +75,7 @@ const useGameContextValue = () => {
 
 const dummyGameContextValue: ReturnType<typeof useGameContextValue> = {
   isGameStarted: false,
+  answerTimeSec: 60,
   createGame: () => {},
   endGame: () => {},
   gotoNextAnswer: () => {},
