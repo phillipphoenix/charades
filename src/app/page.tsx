@@ -18,8 +18,8 @@ export default function Home() {
           ⌚ His or her team then need to guess the word before the time is up.
         </p>
         <p className="mb-2">
-          🤷‍♂️ If the team can't guess the answer, the other team gets a chance to
-          guess.
+          🤷‍♂️ If the team can&apos;t guess the answer, the other team gets a
+          chance to guess.
         </p>
         <p className="mb-2">
           🎉 The team that guessed the answer gets a point.
