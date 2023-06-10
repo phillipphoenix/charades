@@ -1,10 +1,17 @@
 "use client";
 
 import { useGame } from "@/lib/contexts/GameProvider";
-import { FC } from "react";
+import { useRouter } from "next/navigation";
+import { FC, useCallback } from "react";
 
 export const Game: FC = () => {
   const { currentAnswer, gotoNextAnswer, endGame } = useGame();
+  const { push } = useRouter();
+
+  const endGameAndReturn = useCallback(() => {
+    endGame();
+    push("/");
+  }, [endGame]);
 
   return (
     <div className="flex flex-col items-center gap-3">
@@ -12,7 +19,7 @@ export const Game: FC = () => {
 
       <div className="flex flex-col items-center gap-1">
         <button className="btn btn-lg btn-primary" onClick={gotoNextAnswer}>
-          Next! 🤙
+          {!currentAnswer ? "First answer!" : "Next! 🤙"}
         </button>
         <p className="text-center">
           Give the device to the next person and tell
@@ -25,7 +32,7 @@ export const Game: FC = () => {
         <p className="text-6xl">{currentAnswer}</p>
       </div>
       <div className="flex flex-col items-center gap-1">
-        <button className="btn btn-lg" onClick={endGame}>
+        <button className="btn btn-lg" onClick={endGameAndReturn}>
           End Game
         </button>
         <p className="text-center">Ends the current game.</p>
